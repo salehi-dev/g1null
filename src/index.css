@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --bg-main: #080A0D;
+    --bg-main: #14182B;
     --bg-secondary: #0D1117;
     --surface: #11161D;
     --surface-elevated: #161C24;
@@ -75,16 +75,13 @@
     padding-block: 4.5rem;
   }
 
-  .catalog-section--games {
-    background: #0d1117;
-  }
-
-  .catalog-section--products {
-    background: #080a0d;
+  .catalog-section--games,
+  .catalog-section--products,
+  .catalog-section--videos {
+    background: transparent;
   }
 
   .catalog-section--videos {
-    background: #0b0f14;
     padding-bottom: 5rem;
   }
 

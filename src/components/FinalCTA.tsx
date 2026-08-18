@@ -6,7 +6,7 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ onOpenTopUp }: FinalCTAProps) {
   return (
-    <section id="final-cta" className="relative py-10 sm:py-12 border-b border-white/[0.06] bg-[#080A0D]">
+    <section id="final-cta" className="relative py-10 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-[#F5F7FA] tracking-tight uppercase">
           Ready to Top Up?

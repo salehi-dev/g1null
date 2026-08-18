@@ -41,7 +41,7 @@ const items: AboutItem[] = [
 
 export default function AboutG1nullShop() {
   return (
-    <section id="about-shop" className="py-12 sm:py-16 border-b border-white/[0.06] bg-[#0D1117] relative">
+    <section id="about-shop" className="py-12 sm:py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-2xl mb-8 sm:mb-10">

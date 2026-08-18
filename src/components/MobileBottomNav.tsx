@@ -22,7 +22,7 @@ export default function MobileBottomNav({
   return (
     <div
       id="mobile-bottom-navigation"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#080A0D] border-t border-white/[0.08] px-2 py-1.5 pb-safe"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-main)] border-t border-white/[0.08] px-2 py-1.5 pb-safe"
     >
       <div className="grid grid-cols-4 items-center max-w-md mx-auto">
         {/* 1. Home */}

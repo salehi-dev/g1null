@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header id="header-section" className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#080A0D]">
+    <header id="header-section" className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[var(--bg-main)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           {/* Left: Logo + Brand Name */}

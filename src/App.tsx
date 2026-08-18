@@ -31,7 +31,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080A0D] text-[#F5F7FA] selection:bg-[#25D9F8] selection:text-[#080A0D] flex flex-col antialiased">
+    <div className="min-h-screen bg-[var(--bg-main)] text-[#F5F7FA] selection:bg-[#25D9F8] selection:text-[#080A0D] flex flex-col antialiased">
       {/* 1. Header */}
       <Header />
 

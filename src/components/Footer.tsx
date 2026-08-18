@@ -14,7 +14,7 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
   };
 
   return (
-    <footer id="footer-section" className="border-t border-white/[0.08] bg-[#080A0D] text-[#9CA3AF] text-xs py-10 sm:py-14 pb-24 md:pb-14">
+    <footer id="footer-section" className="border-t border-white/[0.08] bg-[var(--bg-main)] text-[#9CA3AF] text-xs py-10 sm:py-14 pb-24 md:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8 sm:mb-10">
           {/* Brand Col */}
