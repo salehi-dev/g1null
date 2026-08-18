@@ -23,16 +23,22 @@
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-optical-sizing: auto;
+    font-variation-settings: 'wdth' 100;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
     background-color: var(--bg-main);
     color: var(--text-primary);
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, .font-heading {
-    font-family: 'Rajdhani', 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.01em;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
+    font-optical-sizing: auto;
   }
 
   /* Consistent clean focus styles without glow or shadow */
@@ -107,11 +113,11 @@
 
   .catalog-title {
     color: var(--text-primary);
-    font-family: 'Rajdhani', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
     font-size: clamp(1.75rem, 2.3vw, 2.25rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.02em;
+    font-weight: 450;
+    line-height: 1.08;
+    letter-spacing: -0.017em;
     text-transform: uppercase;
   }
 
@@ -136,11 +142,11 @@
     border-radius: 999px;
     background: #171c27;
     color: #9aa4b4;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
     font-size: 0.6875rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
     white-space: nowrap;
     cursor: pointer;
     transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
@@ -205,9 +211,9 @@
     margin: 0;
     padding: 0.875rem 0.75rem 1rem;
     color: #f5f7fa;
-    font-family: 'Rajdhani', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
     font-size: 0.9375rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.005em;
     text-align: center;
@@ -349,9 +355,9 @@
   .product-art > span {
     display: grid;
     place-items: center;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
     font-size: 2.25rem;
-    font-weight: 800;
+    font-weight: 500;
   }
 
   .midas-product-tile:hover .product-art__disc,
@@ -377,7 +383,7 @@
     padding: 0 0.75rem 1rem;
     color: #9aa4b4;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 450;
     text-align: center;
   }
 
@@ -387,8 +393,8 @@
     gap: 0.35rem;
     color: #8b95a5;
     font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
     transition: color 180ms ease;
   }
@@ -442,7 +448,7 @@
     margin: 0 0 0.5rem;
     overflow: hidden;
     color: #eef2f6;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.55;
@@ -504,7 +510,7 @@
   .video-empty-state a {
     color: var(--accent);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
   }
 }
@@ -595,6 +601,59 @@
     width: 2.75rem;
     height: 2.75rem;
   }
+}
+
+/* Antigravity-style variable typography */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2 {
+  font-weight: 450;
+  line-height: 1.08;
+  letter-spacing: -0.017em;
+}
+
+h3,
+h4 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.font-heading {
+  font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.font-mono {
+  font-family: 'Google Sans Code', ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.font-black,
+.font-extrabold,
+.font-bold {
+  font-weight: 500;
+}
+
+.font-semibold,
+.font-medium {
+  font-weight: 450;
+}
+
+.tracking-tight {
+  letter-spacing: -0.015em;
+}
+
+.tracking-wide,
+.tracking-wider,
+.tracking-widest {
+  letter-spacing: 0.01em;
 }
 
 /* Respect user's motion preferences */
