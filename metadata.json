@@ -1,0 +1,6 @@
+{
+  "name": "g1Null Gaming Top-Up",
+  "description": "g1NULL official gaming top-up platform and competitive setup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
