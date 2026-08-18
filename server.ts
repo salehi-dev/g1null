@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import http from "http";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
 
@@ -170,6 +171,7 @@ async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
 async function startServer() {
   const app = express();
   const PORT = 3000;
+  const httpServer = http.createServer(app);
 
   app.use(express.json());
 
@@ -191,7 +193,14 @@ async function startServer() {
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        // Reuse the same HTTP server so the HMR WebSocket is served on the
+        // same port as the app instead of spinning up a separate one, which
+        // the preview proxy can't tunnel (causing "WebSocket closed without
+        // opened" errors).
+        hmr: { server: httpServer },
+      },
       appType: "spa",
     });
     app.use(vite.middlewares);
@@ -203,7 +212,7 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  httpServer.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
 }
