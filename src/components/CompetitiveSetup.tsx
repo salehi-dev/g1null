@@ -84,7 +84,7 @@ export default function CompetitiveSetup() {
         {/* Visual Showcase: One Strong Visual + 4 Quick Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
           {/* Left: Strong Setup Visual Hero Banner */}
-          <div className="lg:col-span-5 rounded-xl bg-[#11161D] border border-white/[0.08] p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
+          <div className="lg:col-span-5 rounded-xl bg-[#11161D] p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group">
             <div className="relative z-10">
               <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#25D9F8]">
                 MY CONFIG
@@ -105,7 +105,7 @@ export default function CompetitiveSetup() {
               </span>
             </div>
 
-            <div className="relative z-10 flex items-center justify-between text-xs text-[#8B95A5] border-t border-white/[0.06] pt-3">
+            <div className="relative z-10 flex items-center justify-between text-xs text-[#8B95A5]">
               <span>PUBG Mobile</span>
               <span className="text-[#25D9F8] font-mono font-bold">2026 SEASON</span>
             </div>
@@ -122,7 +122,7 @@ export default function CompetitiveSetup() {
                     setActiveCategory(item.id);
                     setIsModalOpen(true);
                   }}
-                  className="group p-5 rounded-xl bg-[#11161D] hover:bg-[#161C24] border border-white/[0.08] hover:border-[#25D9F8]/40 transition-all duration-150 cursor-pointer flex flex-col justify-between"
+                  className="group p-5 rounded-xl bg-[#11161D] hover:bg-[#161C24] transition-all duration-150 cursor-pointer flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2.5">
@@ -154,8 +154,8 @@ export default function CompetitiveSetup() {
       {/* Detail Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-fade-in">
-          <div className="relative w-full max-w-lg rounded-2xl border border-white/[0.12] bg-[#0D1117] p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+          <div className="relative w-full max-w-lg rounded-2xl bg-[#0D1117] p-6 space-y-4">
+            <div className="flex items-center justify-between pb-3">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-lg bg-[#25D9F8] text-[#080A0D] flex items-center justify-center font-bold">
                   <Sliders className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function CompetitiveSetup() {
                   className={`py-1.5 px-2 rounded-md text-xs font-heading font-bold uppercase tracking-wider transition-all text-center cursor-pointer ${
                     activeCategory === cat.id
                       ? 'bg-[#25D9F8] text-[#080A0D]'
-                      : 'bg-[#11161D] text-[#9CA3AF] hover:text-[#F5F7FA] border border-white/[0.06]'
+                      : 'bg-[#11161D] text-[#9CA3AF] hover:text-[#F5F7FA]'
                   }`}
                 >
                   {cat.name}
@@ -198,7 +198,7 @@ export default function CompetitiveSetup() {
               const active = setupItems.find((c) => c.id === activeCategory) || setupItems[0];
               const ActiveIcon = active.icon;
               return (
-                <div className="p-4 rounded-xl bg-[#11161D] border border-white/[0.08] space-y-3">
+                <div className="p-4 rounded-xl bg-[#11161D] space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <ActiveIcon className="w-4 h-4 text-[#25D9F8]" />
@@ -215,7 +215,7 @@ export default function CompetitiveSetup() {
                     {active.description}
                   </p>
 
-                  <div className="space-y-1.5 pt-2 border-t border-white/[0.06]">
+                  <div className="space-y-1.5 pt-2">
                     {active.details.map((detail, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-[#9CA3AF]">
                         <span className="text-[#25D9F8]">•</span>
@@ -227,7 +227,7 @@ export default function CompetitiveSetup() {
               );
             })()}
 
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-end">
+            <div className="pt-2 flex items-center justify-end">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}

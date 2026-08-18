@@ -119,14 +119,14 @@ export default function FeaturedTopUps({ onSelectPackage }: FeaturedTopUpsProps)
           </div>
         </div>
 
-        {/* Clean, Image-First 6-Column Midasbuy Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        {/* Clean, Image-First 6-Column Midasbuy Product Grid — no card shell */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
           {currentPackages.map((pkg) => (
             <div
               key={pkg.id}
               id={`package-card-${pkg.id}`}
               onClick={() => handlePackageSelect(pkg.id)}
-              className="group relative rounded-xl overflow-hidden bg-[#11161D] border border-white/[0.08] hover:border-[#25D9F8]/60 hover:bg-[#161C24] transition-all duration-150 ease-out cursor-pointer flex flex-col justify-between"
+              className="group relative cursor-pointer flex flex-col"
             >
               {/* Popular Badge */}
               {pkg.isPopular && (
@@ -136,21 +136,21 @@ export default function FeaturedTopUps({ onSelectPackage }: FeaturedTopUpsProps)
                 </div>
               )}
 
-              {/* 1. Full-Width Product Graphic */}
-              <CurrencyProductImage amount={pkg.amount} currency={pkg.currency} tier={pkg.tier} />
+              {/* 1. Full-Width Product Graphic — fills its area, no frame */}
+              <div className="rounded-lg overflow-hidden">
+                <CurrencyProductImage amount={pkg.amount} currency={pkg.currency} tier={pkg.tier} />
+              </div>
 
               {/* 2. Amount & Price */}
-              <div className="p-3.5 pt-2 text-center flex-1 flex flex-col justify-between">
-                <div className="my-1">
-                  <div className="font-heading font-black text-lg sm:text-xl text-[#F5F7FA] tracking-tight group-hover:text-[#25D9F8] transition-colors">
-                    {pkg.amount.toLocaleString()} <span className="text-xs font-bold text-[#25D9F8]">{pkg.currency}</span>
-                  </div>
-                  <div className="text-xs font-bold text-[#9CA3AF] mt-0.5">
-                    {pkg.price}
-                  </div>
+              <div className="pt-3 text-center">
+                <div className="font-heading font-black text-lg sm:text-xl text-[#F5F7FA] tracking-tight group-hover:text-[#25D9F8] transition-colors">
+                  {pkg.amount.toLocaleString()} <span className="text-xs font-bold text-[#25D9F8]">{pkg.currency}</span>
+                </div>
+                <div className="text-xs font-bold text-[#9CA3AF] mt-0.5">
+                  {pkg.price}
                 </div>
 
-                {/* 3. High-Contrast Direct TOP UP Button */}
+                {/* 3. Direct TOP UP Action — flat, no border framing */}
                 <button
                   type="button"
                   id={`select-btn-${pkg.id}`}
@@ -158,7 +158,7 @@ export default function FeaturedTopUps({ onSelectPackage }: FeaturedTopUpsProps)
                     e.stopPropagation();
                     handlePackageSelect(pkg.id);
                   }}
-                  className="w-full mt-2.5 py-2 px-2 rounded-lg font-heading font-black text-xs uppercase tracking-wider transition-all duration-150 flex items-center justify-center cursor-pointer bg-[#161C24] text-[#F5F7FA] border border-white/[0.08] group-hover:bg-[#25D9F8] group-hover:text-[#080A0D] group-hover:border-[#25D9F8] active:scale-[0.98]"
+                  className="w-full mt-2.5 py-2 px-2 rounded-lg font-heading font-black text-xs uppercase tracking-wider transition-all duration-150 flex items-center justify-center cursor-pointer bg-[#11161D] text-[#F5F7FA] group-hover:bg-[#25D9F8] group-hover:text-[#080A0D] active:scale-[0.98]"
                 >
                   TOP UP
                 </button>

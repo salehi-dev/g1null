@@ -238,7 +238,7 @@ export default function Hero({ onOpenTopUp }: HeroProps) {
               key={g.id}
               type="button"
               onClick={() => handleRechargeClick(g.id)}
-              className="p-3 sm:p-3.5 rounded-xl bg-[#0D1117] hover:bg-[#161C24] border border-white/[0.08] hover:border-[#25D9F8]/40 transition-all flex items-center gap-3 cursor-pointer group text-left"
+              className="p-3 sm:p-3.5 rounded-xl bg-[#0D1117] hover:bg-[#161C24] transition-all flex items-center gap-3 cursor-pointer group text-left"
             >
               <div className={`w-9 h-9 rounded-lg bg-gradient-to-tr ${g.color} flex items-center justify-center font-heading font-black text-xs text-[#080A0D] shrink-0`}>
                 {g.iconText.slice(0, 3)}

@@ -124,17 +124,17 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
           </div>
         </div>
 
-        {/* Midasbuy-styled Game Poster Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Midasbuy-styled Game Poster Grid — flat, image-first, no card shell */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {filteredGames.map((game) => (
             <div
               key={game.id}
               id={`game-card-${game.id}`}
               onClick={() => handleCardClick(game.id)}
-              className="group relative rounded-xl overflow-hidden bg-[#11161D] border border-white/[0.08] hover:border-[#25D9F8]/60 hover:bg-[#161C24] transition-all duration-150 ease-out cursor-pointer flex flex-col justify-between"
+              className="group relative cursor-pointer flex flex-col"
             >
-              {/* Poster Art Container (Full-bleed at top) */}
-              <div className={`relative w-full aspect-[16/10] bg-gradient-to-b ${game.gradient} flex flex-col items-center justify-center p-6 overflow-hidden`}>
+              {/* Poster Art — fills its own area, no inner frame */}
+              <div className={`relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-gradient-to-b ${game.gradient} flex flex-col items-center justify-center p-6`}>
                 {/* Background Grid Accent */}
                 <div className="absolute inset-0 bg-tactical-grid opacity-20 pointer-events-none" />
 
@@ -145,9 +145,9 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
                   </div>
                 )}
 
-                {/* Direct High-Contrast Game Typography / Monogram (no inner framed box) */}
+                {/* Direct High-Contrast Game Typography / Monogram */}
                 <div className="relative z-10 text-center">
-                  <span className="font-heading font-black text-3xl sm:text-4xl text-[#F5F7FA] group-hover:text-[#25D9F8] transition-colors tracking-wider drop-none">
+                  <span className="font-heading font-black text-3xl sm:text-4xl text-[#F5F7FA] group-hover:text-[#25D9F8] transition-colors tracking-wider">
                     {game.code}
                   </span>
                   <div className="text-[10px] font-mono uppercase tracking-widest text-[#25D9F8] font-bold mt-1">
@@ -156,18 +156,16 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
                 </div>
               </div>
 
-              {/* Card Body */}
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-heading font-bold text-base sm:text-lg text-[#F5F7FA] uppercase tracking-tight group-hover:text-[#25D9F8] transition-colors">
-                    {game.name}
-                  </h3>
-                  <p className="text-xs text-[#8B95A5] mt-0.5 line-clamp-1">
-                    {game.subtitle}
-                  </p>
-                </div>
+              {/* Title, Subtitle & Action */}
+              <div className="pt-3.5">
+                <h3 className="font-heading font-bold text-base sm:text-lg text-[#F5F7FA] uppercase tracking-tight group-hover:text-[#25D9F8] transition-colors">
+                  {game.name}
+                </h3>
+                <p className="text-xs text-[#8B95A5] mt-0.5 line-clamp-1">
+                  {game.subtitle}
+                </p>
 
-                <div className="mt-4 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between">
                   <div className="text-xs font-mono font-medium text-[#8B95A5]">
                     {game.currency} Top-Up
                   </div>

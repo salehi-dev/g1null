@@ -53,7 +53,7 @@ export default function TrustBenefits() {
               <div
                 key={idx}
                 id={`benefit-item-${idx}`}
-                className="rounded-xl border border-white/[0.08] bg-[#11161D] hover:bg-[#161C24] p-5 sm:p-6 flex flex-col justify-between transition-colors duration-150"
+                className="rounded-xl bg-[#11161D] hover:bg-[#161C24] p-5 sm:p-6 flex flex-col justify-between transition-colors duration-150"
               >
                 <div>
                   <Icon className="w-6 h-6 text-[#25D9F8] mb-3" />

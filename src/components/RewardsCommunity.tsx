@@ -24,7 +24,7 @@ const levels: TierLevel[] = [
       'Standard Fulfillment Priority'
     ],
     icon: Shield,
-    accent: 'border-white/[0.08]'
+    accent: ''
   },
   {
     level: '02',
@@ -37,7 +37,7 @@ const levels: TierLevel[] = [
       'Faster Status Notifications'
     ],
     icon: Trophy,
-    accent: 'border-[#25D9F8]/40',
+    accent: '',
     isPopular: true
   },
   {
@@ -51,7 +51,7 @@ const levels: TierLevel[] = [
       'Apex Role in Discord'
     ],
     icon: Crown,
-    accent: 'border-white/[0.12]'
+    accent: ''
   }
 ];
 
@@ -84,7 +84,7 @@ export default function RewardsCommunity() {
               <div
                 key={item.name}
                 id={`null-club-tier-${item.name.toLowerCase()}`}
-                className={`relative rounded-xl border bg-[#11161D] hover:bg-[#161C24] p-5 sm:p-6 flex flex-col justify-between transition-colors duration-150 ${item.accent}`}
+                className="relative rounded-xl bg-[#11161D] hover:bg-[#161C24] p-5 sm:p-6 flex flex-col justify-between transition-colors duration-150"
               >
                 <div>
                   {/* Top Bar: Icon, Tier badge, Level index */}
@@ -118,7 +118,7 @@ export default function RewardsCommunity() {
                   </p>
 
                   {/* Highlights list */}
-                  <div className="space-y-2 pt-3.5 border-t border-white/[0.06]">
+                  <div className="space-y-2 pt-3.5">
                     {item.highlights.map((h, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-[#9CA3AF]">
                         <Check className="w-3.5 h-3.5 text-[#25D9F8] shrink-0" />
@@ -129,7 +129,7 @@ export default function RewardsCommunity() {
                 </div>
 
                 {/* Subtle Concept Status Footer */}
-                <div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-[#7E8B9F]">
+                <div className="mt-6 pt-3 flex items-center justify-between text-[11px] text-[#7E8B9F]">
                   <span className="uppercase font-semibold tracking-wider">Community Tier</span>
                   <span className="text-[#9CA3AF] font-medium">Squad Perks</span>
                 </div>

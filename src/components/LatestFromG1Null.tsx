@@ -143,28 +143,19 @@ export default function LatestFromG1Null() {
         {/* Dynamic Video Rendering: Loading Skeletons, Error State, or 3 Video Cards */}
         {isLoading ? (
           /* 3 Skeleton placeholders matching video card dimensions */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {[1, 2, 3].map((idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-white/[0.08] bg-[#11161D] p-4 flex flex-col justify-between animate-pulse"
-              >
-                <div>
-                  <div className="aspect-video w-full rounded-lg bg-[#161C24] mb-3.5" />
-                  <div className="h-5 bg-[#161C24] rounded w-3/4 mb-2" />
-                  <div className="h-4 bg-[#161C24] rounded w-1/2" />
-                </div>
-                <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
-                  <div className="h-3.5 bg-[#161C24] rounded w-24" />
-                  <div className="w-6 h-6 rounded-md bg-[#161C24]" />
-                </div>
+              <div key={idx} className="flex flex-col animate-pulse">
+                <div className="aspect-video w-full rounded-lg bg-[#11161D] mb-3.5" />
+                <div className="h-5 bg-[#11161D] rounded w-3/4 mb-2" />
+                <div className="h-4 bg-[#11161D] rounded w-1/2" />
               </div>
             ))}
           </div>
         ) : hasError || videos.length === 0 ? (
           /* Subtle Error State */
-          <div className="rounded-xl border border-white/[0.08] bg-[#11161D] p-8 text-center max-w-xl mx-auto space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-[#161C24] border border-white/[0.08] text-[#8B95A5] flex items-center justify-center mx-auto">
+          <div className="p-8 text-center max-w-xl mx-auto space-y-4">
+            <div className="w-12 h-12 rounded-full bg-[#11161D] text-[#8B95A5] flex items-center justify-center mx-auto">
               <VideoOff className="w-6 h-6" />
             </div>
             <div>
@@ -188,8 +179,8 @@ export default function LatestFromG1Null() {
             </div>
           </div>
         ) : (
-          /* 3 Active Video Cards Grid */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          /* 3 Active Video Cards Grid — flat, image-first, no card shell */
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {videos.map((video) => (
               <a
                 key={video.videoId}
@@ -197,26 +188,26 @@ export default function LatestFromG1Null() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id={`video-card-${video.videoId}`}
-                className="group rounded-xl overflow-hidden bg-[#11161D] border border-white/[0.08] hover:border-[#25D9F8]/60 hover:bg-[#161C24] transition-all duration-150 ease-out flex flex-col justify-between cursor-pointer"
+                className="group flex flex-col cursor-pointer"
               >
-                {/* 1. Full-Width 16:9 Thumbnail (Top of Card) */}
-                <YouTubeThumbnail
-                  videoId={video.videoId}
-                  thumbnailUrl={video.thumbnailUrl}
-                  fallbackThumbnailUrl={video.fallbackThumbnailUrl}
-                  title={video.title}
-                />
+                {/* 1. Full-Width 16:9 Thumbnail — fills the card, no border/frame */}
+                <div className="rounded-lg overflow-hidden">
+                  <YouTubeThumbnail
+                    videoId={video.videoId}
+                    thumbnailUrl={video.thumbnailUrl}
+                    fallbackThumbnailUrl={video.fallbackThumbnailUrl}
+                    title={video.title}
+                  />
+                </div>
 
-                {/* 2. Video Title & Direct Action */}
-                <div className="p-4 sm:p-4.5 flex-1 flex flex-col justify-between">
-                  <h3 className="font-heading font-bold text-sm sm:text-base text-[#F5F7FA] uppercase tracking-tight group-hover:text-[#25D9F8] transition-colors line-clamp-2 leading-snug">
-                    {video.title}
-                  </h3>
+                {/* 2. Title + Watch Action */}
+                <h3 className="mt-3.5 font-heading font-bold text-sm sm:text-base text-[#F5F7FA] uppercase tracking-tight group-hover:text-[#25D9F8] transition-colors line-clamp-2 leading-snug">
+                  {video.title}
+                </h3>
 
-                  <div className="mt-3.5 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#8B95A5] group-hover:text-[#25D9F8] transition-colors">
-                    <span>WATCH VIDEO</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                <div className="mt-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#8B95A5] group-hover:text-[#25D9F8] transition-colors">
+                  <span>WATCH VIDEO</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </a>
             ))}
