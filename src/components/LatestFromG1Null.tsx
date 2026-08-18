@@ -68,7 +68,7 @@ export default function LatestFromG1Null() {
         if (!isMounted) return;
 
         if (data.videos && Array.isArray(data.videos) && data.videos.length > 0) {
-          setVideos(data.videos.slice(0, 3));
+          setVideos(data.videos.slice(0, 8));
         } else {
           setHasError(true);
         }
@@ -103,7 +103,7 @@ export default function LatestFromG1Null() {
 
         {isLoading ? (
           <div className="midas-video-grid" aria-label="Loading videos">
-            {[1, 2, 3].map((idx) => (
+            {Array.from({ length: 8 }, (_, index) => index + 1).map((idx) => (
               <div key={idx} className="midas-video-skeleton" aria-hidden="true">
                 <div />
                 <span />

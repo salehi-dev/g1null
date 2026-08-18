@@ -21,6 +21,7 @@ interface CacheState {
 
 let videoCache: CacheState | null = null;
 const CACHE_DURATION_MS = 30 * 60 * 1000; // 30 minutes
+const VIDEO_DISPLAY_LIMIT = 8;
 
 async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
   const now = Date.now();
@@ -66,7 +67,7 @@ async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
   let pageCount = 0;
   const maxPages = 4; // Safety cap to avoid infinite loops
 
-  while (normalVideos.length < 3 && pageCount < maxPages) {
+  while (normalVideos.length < VIDEO_DISPLAY_LIMIT && pageCount < maxPages) {
     pageCount++;
     const pageTokenParam = nextPageToken ? `&pageToken=${encodeURIComponent(nextPageToken)}` : "";
     const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=${encodeURIComponent(uploadsPlaylistId)}&maxResults=20${pageTokenParam}&key=${encodeURIComponent(apiKey)}`;
@@ -146,7 +147,7 @@ async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
         fallbackThumbnailUrl,
       });
 
-      if (normalVideos.length >= 3) {
+      if (normalVideos.length >= VIDEO_DISPLAY_LIMIT) {
         break;
       }
     }
@@ -157,7 +158,7 @@ async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
     }
   }
 
-  const finalVideos = normalVideos.slice(0, 3);
+  const finalVideos = normalVideos.slice(0, VIDEO_DISPLAY_LIMIT);
 
   // Store in cache for 30 minutes
   videoCache = {
