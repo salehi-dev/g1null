@@ -9,9 +9,13 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="sm:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-[#25D9F8] flex items-center justify-center font-heading font-black text-[#080A0D] text-base sm:text-lg">
-                G1
-              </div>
+              <img
+                src="/images/brand/g1null-logo-01.png"
+                alt=""
+                className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg object-cover"
+                loading="lazy"
+                decoding="async"
+              />
               <span className="text-xl font-heading font-black text-[#F5F7FA] tracking-tight uppercase">
                 g1NULL
               </span>

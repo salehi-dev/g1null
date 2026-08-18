@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, CircleUserRound } from 'lucide-react';
+import { Globe, CircleUserRound, ShoppingCart } from 'lucide-react';
 
 const NAV_ITEMS = [
   { label: 'HOME', href: '#top' },
@@ -25,9 +25,11 @@ export default function Header() {
             onClick={scrollToTop}
             className="flex items-center gap-2 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#25D9F8] to-[#18C4E2] flex items-center justify-center font-heading font-black text-sm text-[#080A0D] group-hover:scale-105 transition-transform">
-              G1
-            </div>
+            <img
+              src="/images/brand/g1null-logo-01.png"
+              alt=""
+              className="w-8 h-8 rounded-lg object-cover group-hover:scale-105 transition-transform"
+            />
             <span className="font-heading font-black text-xl tracking-tight text-[#F5F7FA] group-hover:text-[#25D9F8] transition-colors">
               g1<span className="text-[#25D9F8]">NULL</span>
             </span>
@@ -61,6 +63,15 @@ export default function Header() {
               <Globe className="w-4 h-4" />
               <span className="text-[11px] font-mono font-semibold uppercase">EN</span>
             </span>
+
+            <a
+              id="header-cart-btn"
+              href="#products"
+              className="w-9 h-9 rounded-lg text-[#8B95A5] hover:text-[#F5F7FA] hover:bg-[#11161D] flex items-center justify-center transition-colors"
+              aria-label="Shopping cart"
+            >
+              <ShoppingCart className="w-5 h-5" />
+            </a>
 
             <span
               id="header-profile-btn"
