@@ -69,7 +69,7 @@ export default function App() {
         onOpenAccount={() => {
           const el = document.getElementById('community');
           if (el) {
-            const behavior = document.documentElement.classList.contains('smooth-scroll-active') ? 'auto' : 'smooth';
+            const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
             el.scrollIntoView({ behavior });
           }
         }}
