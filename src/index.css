@@ -603,17 +603,20 @@
   }
 }
 
-/* Antigravity-style desktop scroll interpolation */
+/* Single desktop wheel controller; the page itself is never transformed. */
 .smooth-scroll-content {
   display: flex;
   flex: 1;
   min-width: 0;
   flex-direction: column;
-  transform: translate3d(0, 0, 0);
 }
 
-html.smooth-scroll-active {
-  scroll-behavior: auto;
+html.wheel-scroll-enabled {
+  overscroll-behavior-y: none;
+}
+
+html.wheel-scroll-running {
+  scroll-behavior: auto !important;
 }
 
 /* Antigravity-style variable typography */
