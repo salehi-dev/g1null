@@ -78,18 +78,18 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#products" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
+                  g1NULL Products
+                </a>
+              </li>
+              <li>
                 <button
                   type="button"
                   onClick={handleTopUpClick}
                   className="hover:text-[#25D9F8] transition-colors text-left cursor-pointer py-1 inline-block"
                 >
-                  Top Up
-                </button>
-              </li>
-              <li>
-                <a href="#hero-section" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
                   Track Order
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -101,19 +101,19 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#setup" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
-                  My Setup
-                </a>
-              </li>
-              <li>
                 <a href="#latest-g1null" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
-                  Latest Videos
+                  g1NULL Video
                 </a>
               </li>
               <li>
                 <a href="#community" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
                   Community
                 </a>
+              </li>
+              <li>
+                <span className="text-[#9CA3AF] hover:text-[#25D9F8] cursor-pointer transition-colors py-1 inline-block">
+                  Partnerships
+                </span>
               </li>
             </ul>
           </div>
@@ -125,13 +125,13 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#trust-benefits" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
-                  Support & Guarantee
+                <a href="#about-shop" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
+                  About g1NULL Shop
                 </a>
               </li>
               <li>
-                <a href="#trust-benefits" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
-                  Fulfillment FAQ
+                <a href="#about-shop" className="hover:text-[#25D9F8] transition-colors py-1 inline-block">
+                  Payment & Security
                 </a>
               </li>
             </ul>

@@ -120,7 +120,7 @@ export default function LatestFromG1Null() {
               <span>YOUTUBE</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#F5F7FA] uppercase tracking-tight">
-              LATEST VIDEOS
+              g1NULL Video
             </h2>
             <p className="text-sm text-[#9CA3AF] mt-1.5">
               Recent gameplay, competitive highlights, and guides.

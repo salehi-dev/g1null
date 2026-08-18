@@ -41,11 +41,11 @@ export default function FinalCTA({ onOpenTopUp }: FinalCTAProps) {
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
-            href="#setup"
-            id="final-cta-setup-btn"
+            href="#products"
+            id="final-cta-products-btn"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-[#11161D] hover:bg-[#161C24] active:scale-[0.98] border border-white/[0.08] hover:border-white/[0.18] text-[#F5F7FA] font-semibold text-xs uppercase tracking-wider transition-all duration-150 focus-visible:ring-2 focus-visible:ring-[#25D9F8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080A0D]"
           >
-            <span>MY SETUP</span>
+            <span>SHOP PRODUCTS</span>
           </a>
         </div>
 

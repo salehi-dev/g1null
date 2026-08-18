@@ -93,7 +93,7 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
               <span>SUPPORTED TITLES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-heading font-black text-[#F5F7FA] uppercase tracking-tight">
-              Choose Your Game
+              Games
             </h2>
             <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
               Select a game to top up directly to your UID.
