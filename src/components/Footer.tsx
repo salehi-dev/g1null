@@ -1,18 +1,7 @@
 import React from 'react';
 import { Youtube, Instagram } from 'lucide-react';
 
-interface FooterProps {
-  onOpenTopUp?: (gameId?: string) => void;
-}
-
-export default function Footer({ onOpenTopUp }: FooterProps) {
-  const handleTopUpClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (onOpenTopUp) {
-      onOpenTopUp('pubg-mobile');
-    }
-  };
-
+export default function Footer() {
   return (
     <footer id="footer-section" className="border-t border-white/[0.08] bg-[var(--bg-main)] text-[#9CA3AF] text-xs py-10 sm:py-14 pb-24 md:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,13 +72,11 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
                 </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={handleTopUpClick}
+                <span
                   className="hover:text-[#25D9F8] transition-colors text-left cursor-pointer py-1 inline-block"
                 >
                   Track Order
-                </button>
+                </span>
               </li>
             </ul>
           </div>

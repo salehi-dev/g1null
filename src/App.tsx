@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import GameSelector from './components/GameSelector';
 import G1nullProducts from './components/G1nullProducts';
@@ -12,25 +12,9 @@ import AboutG1nullShop from './components/AboutG1nullShop';
 import RewardsCommunity from './components/RewardsCommunity';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
-import TopUpModal from './components/TopUpModal';
-import MobileBottomNav from './components/MobileBottomNav';
 import SmoothScroll from './components/SmoothScroll';
 
 export default function App() {
-  const [isTopUpOpen, setIsTopUpOpen] = useState<boolean>(false);
-  const [selectedGameId, setSelectedGameId] = useState<string>('pubg-mobile');
-  const [selectedPackageId, setSelectedPackageId] = useState<string | undefined>(undefined);
-
-  const handleOpenTopUp = (gameId: string = 'pubg-mobile', packageId?: string) => {
-    setSelectedGameId(gameId);
-    setSelectedPackageId(packageId);
-    setIsTopUpOpen(true);
-  };
-
-  const handleCloseTopUp = () => {
-    setIsTopUpOpen(false);
-  };
-
   return (
     <div className="min-h-screen bg-[var(--bg-main)] text-[#F5F7FA] selection:bg-[#25D9F8] selection:text-[#080A0D] flex flex-col antialiased">
       {/* 1. Header */}
@@ -40,7 +24,7 @@ export default function App() {
         {/* Main Content Area with Ordered Sections */}
         <main className="flex-1">
           {/* 2. Games */}
-          <GameSelector onSelectGame={(gameId) => handleOpenTopUp(gameId)} />
+          <GameSelector />
 
           {/* 3. g1NULL Products */}
           <G1nullProducts />
@@ -55,33 +39,12 @@ export default function App() {
           <RewardsCommunity />
 
           {/* 7. Final CTA */}
-          <FinalCTA onOpenTopUp={() => handleOpenTopUp('pubg-mobile')} />
+          <FinalCTA />
         </main>
 
         {/* 8. Footer */}
-        <Footer onOpenTopUp={(gameId) => handleOpenTopUp(gameId || 'pubg-mobile')} />
+        <Footer />
       </SmoothScroll>
-
-      {/* Mobile Sticky Bottom Navigation (Home, Games, Orders, Account) */}
-      <MobileBottomNav
-        onOpenTopUp={(gameId) => handleOpenTopUp(gameId || 'pubg-mobile')}
-        onOpenOrders={() => handleOpenTopUp('pubg-mobile')}
-        onOpenAccount={() => {
-          const el = document.getElementById('community');
-          if (el) {
-            const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-            el.scrollIntoView({ behavior });
-          }
-        }}
-      />
-
-      {/* Direct Top-Up Flow Modal */}
-      <TopUpModal
-        isOpen={isTopUpOpen}
-        onClose={handleCloseTopUp}
-        initialGameId={selectedGameId}
-        initialPackageId={selectedPackageId}
-      />
     </div>
   );
 }

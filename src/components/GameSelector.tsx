@@ -63,11 +63,7 @@ function GameArtwork({ game }: { game: GameItem }) {
   );
 }
 
-interface GameSelectorProps {
-  onSelectGame?: (gameId: string) => void;
-}
-
-export default function GameSelector({ onSelectGame }: GameSelectorProps) {
+export default function GameSelector() {
   const [activeTab, setActiveTab] = useState<'all' | GameCategory>('all');
   const filteredGames = activeTab === 'all' ? gamesList : gamesList.filter((game) => game.category === activeTab);
 
@@ -94,18 +90,16 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
 
         <div className="midas-game-grid">
           {filteredGames.map((game) => (
-            <button
+            <article
               key={game.id}
               id={`game-card-${game.id}`}
-              type="button"
-              onClick={() => onSelectGame?.(game.id)}
               className="midas-tile"
             >
               <div className="midas-tile__media">
                 <GameArtwork game={game} />
               </div>
               <h3 className="midas-tile__name">{game.name}</h3>
-            </button>
+            </article>
           ))}
         </div>
       </div>

@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface FinalCTAProps {
-  onOpenTopUp?: () => void;
-}
-
-export default function FinalCTA({ onOpenTopUp }: FinalCTAProps) {
+export default function FinalCTA() {
   return (
     <section id="final-cta" className="relative py-10 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
