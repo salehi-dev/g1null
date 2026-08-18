@@ -115,16 +115,9 @@ export default function LatestFromG1Null() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#11161D] border border-white/[0.08] text-[#25D9F8] text-xs font-semibold uppercase tracking-wider mb-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#25D9F8]" />
-              <span>YOUTUBE</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#F5F7FA] uppercase tracking-tight">
               g1NULL Video
             </h2>
-            <p className="text-sm text-[#9CA3AF] mt-1.5">
-              Recent gameplay, competitive highlights, and guides.
-            </p>
           </div>
 
           <div>

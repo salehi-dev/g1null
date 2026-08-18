@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Sparkles, Trophy, Award, Crown, Check } from 'lucide-react';
+import { Shield, Trophy, Crown, Check } from 'lucide-react';
 
 interface TierLevel {
   level: string;
@@ -64,16 +64,9 @@ export default function RewardsCommunity() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-2xl mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#11161D] border border-white/[0.08] text-[#25D9F8] text-xs font-semibold uppercase tracking-wider mb-2.5">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>COMMUNITY</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#F5F7FA] uppercase tracking-tight">
             Join the Community
           </h2>
-          <p className="text-sm text-[#9CA3AF] mt-1.5 leading-relaxed">
-            Squad up for custom matches, live stream rooms, and competitive perks.
-          </p>
         </div>
 
         {/* 3 Tier Levels */}

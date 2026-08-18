@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Flame, Sparkles, Trophy } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface GameItem {
   id: string;
@@ -88,16 +88,9 @@ export default function GameSelector({ onSelectGame }: GameSelectorProps) {
         {/* Section Header with Category Filter Tabs */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#11161D] border border-white/[0.08] text-[#25D9F8] text-[11px] font-mono font-bold uppercase tracking-wider mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>SUPPORTED TITLES</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-heading font-black text-[#F5F7FA] uppercase tracking-tight">
               Games
             </h2>
-            <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
-              Select a game to top up directly to your UID.
-            </p>
           </div>
 
           {/* Filter Pills */}

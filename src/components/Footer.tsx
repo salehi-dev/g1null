@@ -27,8 +27,8 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
                 g1NULL
               </span>
             </div>
-            <p className="text-[#9CA3AF] text-xs leading-relaxed max-w-xs">
-              Gaming. Content. Top-Ups.
+            <p className="text-[#9CA3AF] text-xs font-semibold uppercase tracking-wider">
+              Follow us on
             </p>
 
             {/* Social Icons (YouTube, Instagram, TikTok) */}
@@ -161,7 +161,7 @@ export default function Footer({ onOpenTopUp }: FooterProps) {
         <div className="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[#7E8B9F] text-[11px] text-center sm:text-left">
           <p>© {new Date().getFullYear()} g1NULL. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            <span>Official Gaming Platform</span>
+            <span>Official G1NULL SHOP</span>
           </p>
         </div>
       </div>
