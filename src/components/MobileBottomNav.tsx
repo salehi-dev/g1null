@@ -15,7 +15,8 @@ export default function MobileBottomNav({
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const behavior = document.documentElement.classList.contains('smooth-scroll-active') ? 'auto' : 'smooth';
+      el.scrollIntoView({ behavior });
     }
   };
 

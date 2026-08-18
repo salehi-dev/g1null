@@ -14,6 +14,7 @@ import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import TopUpModal from './components/TopUpModal';
 import MobileBottomNav from './components/MobileBottomNav';
+import SmoothScroll from './components/SmoothScroll';
 
 export default function App() {
   const [isTopUpOpen, setIsTopUpOpen] = useState<boolean>(false);
@@ -35,29 +36,31 @@ export default function App() {
       {/* 1. Header */}
       <Header />
 
-      {/* Main Content Area with Ordered Sections */}
-      <main className="flex-1">
-        {/* 2. Games */}
-        <GameSelector onSelectGame={(gameId) => handleOpenTopUp(gameId)} />
+      <SmoothScroll>
+        {/* Main Content Area with Ordered Sections */}
+        <main className="flex-1">
+          {/* 2. Games */}
+          <GameSelector onSelectGame={(gameId) => handleOpenTopUp(gameId)} />
 
-        {/* 3. g1NULL Products */}
-        <G1nullProducts />
+          {/* 3. g1NULL Products */}
+          <G1nullProducts />
 
-        {/* 4. g1NULL Video */}
-        <LatestFromG1Null />
+          {/* 4. g1NULL Video */}
+          <LatestFromG1Null />
 
-        {/* 5. About g1NULL Shop */}
-        <AboutG1nullShop />
+          {/* 5. About g1NULL Shop */}
+          <AboutG1nullShop />
 
-        {/* 6. Rewards / Community */}
-        <RewardsCommunity />
+          {/* 6. Rewards / Community */}
+          <RewardsCommunity />
 
-        {/* 7. Final CTA */}
-        <FinalCTA onOpenTopUp={() => handleOpenTopUp('pubg-mobile')} />
-      </main>
+          {/* 7. Final CTA */}
+          <FinalCTA onOpenTopUp={() => handleOpenTopUp('pubg-mobile')} />
+        </main>
 
-      {/* 8. Footer */}
-      <Footer onOpenTopUp={(gameId) => handleOpenTopUp(gameId || 'pubg-mobile')} />
+        {/* 8. Footer */}
+        <Footer onOpenTopUp={(gameId) => handleOpenTopUp(gameId || 'pubg-mobile')} />
+      </SmoothScroll>
 
       {/* Mobile Sticky Bottom Navigation (Home, Games, Orders, Account) */}
       <MobileBottomNav
@@ -65,7 +68,10 @@ export default function App() {
         onOpenOrders={() => handleOpenTopUp('pubg-mobile')}
         onOpenAccount={() => {
           const el = document.getElementById('community');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) {
+            const behavior = document.documentElement.classList.contains('smooth-scroll-active') ? 'auto' : 'smooth';
+            el.scrollIntoView({ behavior });
+          }
         }}
       />
 

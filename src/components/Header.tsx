@@ -14,7 +14,8 @@ export default function Header() {
   const handleNavClick = (e: React.MouseEvent, href: string) => {
     if (href === '#top') {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const behavior = document.documentElement.classList.contains('smooth-scroll-active') ? 'auto' : 'smooth';
+      window.scrollTo({ top: 0, behavior });
     }
     setMobileMenuOpen(false);
   };

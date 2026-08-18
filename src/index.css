@@ -603,6 +603,19 @@
   }
 }
 
+/* Antigravity-style desktop scroll interpolation */
+.smooth-scroll-content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  transform: translate3d(0, 0, 0);
+}
+
+html.smooth-scroll-active {
+  scroll-behavior: auto;
+}
+
 /* Antigravity-style variable typography */
 button,
 input,
