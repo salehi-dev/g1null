@@ -15,6 +15,7 @@ let videoCache: CacheState | null = null;
 
 const CACHE_DURATION_MS = 30 * 60 * 1000;
 const VIDEO_DISPLAY_LIMIT = 8;
+const YOUTUBE_CHANNEL_ID = "UCEntWOceT_4muzGj1xYKauQ";
 
 async function readYouTubeResponse(response: Response, requestName: string) {
   const data = await response.json();
@@ -27,17 +28,56 @@ async function readYouTubeResponse(response: Response, requestName: string) {
   return data;
 }
 
-export async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
-  const now = Date.now();
-  if (videoCache && videoCache.expiresAt > now && videoCache.videos.length > 0) {
-    return videoCache.videos;
+function normalizeApiKey(value: string | undefined) {
+  const trimmedValue = value?.trim();
+  if (!trimmedValue) return "";
+
+  const quotedValue = trimmedValue.match(/^(["'])(.*)\1$/s);
+  return (quotedValue?.[2] || trimmedValue).trim();
+}
+
+function decodeXml(value: string) {
+  return value
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(Number.parseInt(code, 16)))
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number.parseInt(code, 10)))
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
+async function fetchLatestVideosFromPublicFeed(): Promise<YouTubeVideoItem[]> {
+  const response = await fetch(
+    `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`,
+  );
+
+  if (!response.ok) {
+    throw new Error(`YouTube public feed failed with status ${response.status}`);
   }
 
-  const apiKey = process.env.YOUTUBE_API_KEY;
-  if (!apiKey) {
-    throw new Error("YOUTUBE_API_KEY is not configured on the server.");
-  }
+  const xml = await response.text();
+  const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
 
+  return entries
+    .map((entry): YouTubeVideoItem | null => {
+      const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
+      const title = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+      if (!videoId || !title) return null;
+
+      return {
+        videoId,
+        title: decodeXml(title.trim()),
+        youtubeUrl: `https://www.youtube.com/watch?v=${videoId}`,
+        thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+        fallbackThumbnailUrl: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+      };
+    })
+    .filter((video): video is YouTubeVideoItem => video !== null)
+    .slice(0, VIDEO_DISPLAY_LIMIT);
+}
+
+async function fetchLatestVideosFromDataApi(apiKey: string): Promise<YouTubeVideoItem[]> {
   let channelResponse = await fetch(
     `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=g1NULL&key=${encodeURIComponent(apiKey)}`,
   );
@@ -132,7 +172,37 @@ export async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
     if (!nextPageToken) break;
   }
 
-  const latestVideos = videos.slice(0, VIDEO_DISPLAY_LIMIT);
+  return videos.slice(0, VIDEO_DISPLAY_LIMIT);
+}
+
+export async function fetchLatestG1NullVideos(): Promise<YouTubeVideoItem[]> {
+  const now = Date.now();
+  if (videoCache && videoCache.expiresAt > now && videoCache.videos.length > 0) {
+    return videoCache.videos;
+  }
+
+  const apiKey = normalizeApiKey(process.env.YOUTUBE_API_KEY);
+  let latestVideos: YouTubeVideoItem[] = [];
+
+  if (apiKey) {
+    try {
+      latestVideos = await fetchLatestVideosFromDataApi(apiKey);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown YouTube API error";
+      console.warn(`[YouTube Data API] ${message}; using the public feed fallback.`);
+    }
+  } else {
+    console.warn("[YouTube Data API] YOUTUBE_API_KEY is missing; using the public feed fallback.");
+  }
+
+  if (latestVideos.length === 0) {
+    latestVideos = await fetchLatestVideosFromPublicFeed();
+  }
+
+  if (latestVideos.length === 0) {
+    throw new Error("YouTube returned no videos.");
+  }
+
   videoCache = {
     videos: latestVideos,
     expiresAt: now + CACHE_DURATION_MS,
