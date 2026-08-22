@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="sm:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
               <img
-                src="/images/brand/g1null-logo-01.png"
+                src="/images/brand/g1null-logo-01.webp"
                 alt=""
                 className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg object-cover"
                 loading="lazy"

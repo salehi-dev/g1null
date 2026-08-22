@@ -26,7 +26,7 @@ export default function Header() {
             className="flex items-center gap-2 group"
           >
             <img
-              src="/images/brand/g1null-logo-01.png"
+              src="/images/brand/g1null-logo-01.webp"
               alt=""
               className="w-8 h-8 rounded-lg object-cover group-hover:scale-105 transition-transform"
             />
