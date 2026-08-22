@@ -1,4 +1,6 @@
-import { fetchLatestG1NullVideos } from "../../src/server/youtube";
+// Vercel executes this function as native ESM. Keep the runtime extension explicit
+// so Node can resolve the transpiled `youtube.js` module in the function bundle.
+import { fetchLatestG1NullVideos } from "../../src/server/youtube.js";
 
 interface ApiRequest {
   method?: string;
