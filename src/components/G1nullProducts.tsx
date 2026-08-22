@@ -6,12 +6,12 @@ interface MerchItem {
 }
 
 const merch: MerchItem[] = [
-  { id: 'finger-sleeves', name: 'Gaming Finger Sleeves', price: '$8.99', image: '/images/products/g1null-finger.png' },
-  { id: 'hoodie', name: 'g1NULL Hoodie', price: '$44.99', image: '/images/products/g1null-hoodie.png' },
-  { id: 'cap', name: 'g1NULL Cap', price: '$19.99', image: '/images/products/g1null-cap.png' },
-  { id: 'mug', name: 'g1NULL Mug', price: '$12.99', image: '/images/products/g1null-mug.png' },
-  { id: 'mouse-pad', name: 'Gaming Mouse Pad', price: '$14.99', image: '/images/products/g1null-mouse-pad.png' },
-  { id: 't-shirt', name: 'g1NULL T-Shirt', price: '$24.99', image: '/images/products/g1null-tshirt.png' },
+  { id: 'finger-sleeves', name: 'Gaming Finger Sleeves', price: '$8.99', image: '/images/products/g1null-finger.webp' },
+  { id: 'hoodie', name: 'g1NULL Hoodie', price: '$44.99', image: '/images/products/g1null-hoodie.webp' },
+  { id: 'cap', name: 'g1NULL Cap', price: '$19.99', image: '/images/products/g1null-cap.webp' },
+  { id: 'mug', name: 'g1NULL Mug', price: '$12.99', image: '/images/products/g1null-mug.webp' },
+  { id: 'mouse-pad', name: 'Gaming Mouse Pad', price: '$14.99', image: '/images/products/g1null-mouse-pad.webp' },
+  { id: 't-shirt', name: 'g1NULL T-Shirt', price: '$24.99', image: '/images/products/g1null-tshirt.webp' },
 ];
 
 export default function G1nullProducts() {

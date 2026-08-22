@@ -10,11 +10,11 @@ interface GameItem {
 }
 
 const gamesList: GameItem[] = [
-  { id: 'pubg-mobile', name: 'PUBG MOBILE', category: 'battle-royale', image: '/images/games/pubg-mobile.png' },
-  { id: 'free-fire', name: 'FREE FIRE', category: 'battle-royale', image: '/images/games/free-fire.png' },
-  { id: 'mobile-legends', name: 'MOBILE LEGENDS', category: 'action', image: '/images/games/mobile-legends.png' },
-  { id: 'codm', name: 'CALL OF DUTY: M', category: 'shooter', image: '/images/games/call-of-duty.png' },
-  { id: 'delta-force', name: 'DELTA FORCE', category: 'shooter', image: '/images/games/delta-force.png' },
+  { id: 'pubg-mobile', name: 'PUBG MOBILE', category: 'battle-royale', image: '/images/games/pubg-mobile.webp' },
+  { id: 'free-fire', name: 'FREE FIRE', category: 'battle-royale', image: '/images/games/free-fire.webp' },
+  { id: 'mobile-legends', name: 'MOBILE LEGENDS', category: 'action', image: '/images/games/mobile-legends.webp' },
+  { id: 'codm', name: 'CALL OF DUTY: M', category: 'shooter', image: '/images/games/call-of-duty.webp' },
+  { id: 'delta-force', name: 'DELTA FORCE', category: 'shooter', image: '/images/games/delta-force.webp' },
 ];
 
 const filters: Array<{ id: 'all' | GameCategory; label: string }> = [
